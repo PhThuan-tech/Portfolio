@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portfolio | Pham Van Vuong Thuan - AI Engineer (VNU-UET)</title>
+    <meta name="description" content="Portfolio of Pham Van Vuong Thuan (PhThuan-tech) - 3rd-year AI Engineer at VNU University of Engineering and Technology (UET) specializing in Computer Vision, NLP/LLMs, and Continual Learning.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Multi-Theme & Interactive Style -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="relative selection:bg-blue-500/20">
+
+    <!-- ==========================================================================
+         HEADER / TOP BAR FLOATING FROSTED GLASS
+         Tích hợp: Scroll Progress Bar, Language Switcher (EN/VI) & Theme Segmented Slider
+         ========================================================================== -->
+    <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md border-b" style="background-color: var(--bg-header); border-color: var(--border-color);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            
+            <!-- Logo / Tên cá nhân -->
+            <a href="#hero" class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center font-mono font-bold text-xs" style="background-color: var(--btn-secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
+                    PT
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="font-semibold text-sm tracking-tight" style="color: var(--text-primary);">PHAM VUONG THUAN</span>
+                    <span class="ui-badge hidden sm:inline-flex">
+                        <span class="ui-badge-inner">VNU-UET</span>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links (with i18n support) -->
+            <nav class="hidden lg:flex items-center gap-5 text-xs font-mono uppercase tracking-wider" style="color: var(--text-secondary);">
+                <a href="#hero" class="nav-item hover:opacity-100 transition-opacity" data-i18n="nav_about">About</a>
+                <a href="#skills" class="nav-item hover:opacity-100 transition-opacity" data-i18n="nav_skills">Skills</a>
+                <a href="#projects" class="nav-item hover:opacity-100 transition-opacity" data-i18n="nav_projects">Projects</a>
+                <a href="#playground" class="nav-item hover:opacity-100 transition-opacity text-sky-400 font-semibold" data-i18n="nav_playground">AI Playground</a>
+                <a href="#education" class="nav-item hover:opacity-100 transition-opacity" data-i18n="nav_education">Education</a>
+                <a href="#research" class="nav-item hover:opacity-100 transition-opacity" data-i18n="nav_research">Research Lab</a>
+                <a href="#faq" class="nav-item hover:opacity-100 transition-opacity" data-i18n="nav_faq">FAQ</a>
+            </nav>
+
+            <!-- Language Switcher, Theme Switcher & CV Button -->
+            <div class="hidden md:flex items-center gap-3">
+                
+                <!-- 1. Bilingual Language Switcher (EN default / VI) -->
+                <div class="topbar-segmented-container">
+                    <button data-set-lang="en" class="lang-btn active transition-all">EN</button>
+                    <button data-set-lang="vi" class="lang-btn transition-all">VI</button>
+                </div>
+
+                <!-- 2. Segmented Theme Switcher (Dark / Light / Solar) -->
+                <div class="topbar-segmented-container">
+                    <button data-set-theme="dark" class="theme-btn active transition-all" title="Dark Theme">
+                        <i class="fa-solid fa-moon text-[10px]"></i>
+                        <span class="text-[11px]">Dark</span>
+                    </button>
+                    <button data-set-theme="light" class="theme-btn transition-all" title="Light Theme">
+                        <i class="fa-solid fa-sun text-[10px]"></i>
+                        <span class="text-[11px]">Light</span>
+                    </button>
+                    <button data-set-theme="solar" class="theme-btn transition-all" title="Solar Warm Theme">
+                        <i class="fa-solid fa-sun-plant-wilt text-[10px]"></i>
+                        <span class="text-[11px]">Solar</span>
+                    </button>
+                </div>
+
+                <!-- 3. Link xem & in CV chuẩn Stanford -->
+                <a href="cv.html" target="_blank" class="ui-btn-primary px-3.5 py-1.5 text-xs font-mono flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-file-lines text-[11px]"></i>
+                    <span data-i18n="btn_cv">VIEW CV (STANFORD)</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-lg focus:outline-none" style="color: var(--text-primary);">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Scroll Progress Line Indicator -->
+        <div id="scroll-progress-bar"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-b px-6 py-4 space-y-3 font-mono text-xs" style="background-color: var(--bg-surface-1); border-color: var(--border-color);">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b" style="border-color: var(--border-color);">
+                <div class="topbar-segmented-container">
+                    <button data-set-lang="en" class="lang-btn active px-2 py-0.5">EN</button>
+                    <button data-set-lang="vi" class="lang-btn px-2 py-0.5">VI</button>
+                </div>
+                <div class="topbar-segmented-container">
+                    <button data-set-theme="dark" class="theme-btn active px-2 py-0.5 text-xs">Dark</button>
+                    <button data-set-theme="light" class="theme-btn px-2 py-0.5 text-xs">Light</button>
+                    <button data-set-theme="solar" class="theme-btn px-2 py-0.5 text-xs">Solar</button>
+                </div>
+            </div>
+            <a href="#hero" class="block py-1" style="color: var(--text-primary);" data-i18n="nav_about">About</a>
+            <a href="#skills" class="block py-1" style="color: var(--text-primary);" data-i18n="nav_skills">Skills</a>
+            <a href="#projects" class="block py-1" style="color: var(--text-primary);" data-i18n="nav_projects">Projects</a>
+            <a href="#playground" class="block py-1 text-sky-400" data-i18n="nav_playground">AI Playground</a>
+            <a href="#education" class="block py-1" style="color: var(--text-primary);" data-i18n="nav_education">Education</a>
+            <a href="#research" class="block py-1" style="color: var(--text-primary);" data-i18n="nav_research">Research Lab</a>
+            <a href="#faq" class="block py-1" style="color: var(--text-primary);" data-i18n="nav_faq">FAQ</a>
+            <div class="pt-2">
+                <a href="cv.html" target="_blank" class="ui-btn-primary block text-center px-4 py-2 text-xs font-mono" data-i18n="btn_cv">
+                    VIEW CV (STANFORD FORMAT)
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="relative z-10">
+
+        <!-- ==========================================================================
+             PHẦN 1: HERO SECTION (Phạm Văn Vương Thuận - VNU-UET)
+             ========================================================================== -->
+        <section id="hero" class="min-h-screen relative flex items-center justify-center pt-24 pb-16 px-4 sm:px-6 overflow-hidden">
+            
+            <!-- Canvas Tương Tác Chuột (Particle Dispersal Physics) -->
+            <div id="hero-canvas-container">
+                <canvas id="hero-canvas"></canvas>
+            </div>
+
+            <div class="max-w-4xl mx-auto w-full text-center relative z-10 space-y-8 pointer-events-none">
+                
+                <!-- Badge Trạng thái làm việc -->
+                <div class="reveal-on-scroll flex justify-center pointer-events-auto">
+                    <div class="ui-badge">
+                        <div class="ui-badge-inner flex items-center gap-2">
+                            <span class="status-indicator"></span>
+                            <span data-i18n="badge_status">AI SYSTEM PRACTITIONER • VNU-UET AI ENGINEER</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tiêu đề & Họ tên -->
+                <div class="reveal-on-scroll space-y-3">
+                    <h1 class="text-4xl sm:text-6xl font-bold tracking-tight leading-tight" style="color: var(--text-primary);">
+                        Phạm Văn Vương Thuận
+                    </h1>
+                    <p class="text-lg sm:text-xl font-mono" style="color: var(--text-secondary);" data-i18n="hero_role">
+                        AI Engineer • Computer Vision & NLP
+                    </p>
+                </div>
+
+                <!-- Định hướng phát triển & Tóm tắt -->
+                <div class="reveal-on-scroll max-w-2xl mx-auto">
+                    <p class="text-sm sm:text-base leading-relaxed" style="color: var(--text-secondary);" data-i18n="hero_desc">
+                        3rd-year Artificial Intelligence student at <strong style="color: var(--text-primary);">VNU University of Engineering and Technology (UET)</strong>. Focused on <strong style="color: var(--text-primary);">Computer Vision</strong>, <strong style="color: var(--text-primary);">Natural Language Processing (NLP / LLMs)</strong>, and <strong style="color: var(--text-primary);">Continual Learning</strong>. Solid mathematical background (GPA: 3.71/4.0), data engineering skills, and production-driven mindset.
+                    </p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="reveal-on-scroll flex flex-wrap items-center justify-center gap-3 pt-2 pointer-events-auto">
+                    <a href="cv.html" target="_blank" class="ui-btn-primary px-5 py-2.5 text-xs font-mono flex items-center gap-2">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span data-i18n="btn_download_cv">View Resume (Stanford Format)</span>
+                    </a>
+                    <a href="https://github.com/PhThuan-tech?tab=repositories" target="_blank" rel="noopener noreferrer" class="ui-btn-secondary px-5 py-2.5 text-xs font-mono flex items-center gap-2">
+                        <i class="fa-brands fa-github"></i>
+                        <span data-i18n="btn_view_projects">Explore Projects & Code</span>
+                    </a>
+                </div>
+
+                <!-- ==========================================================
+                     LIÊN KẾT TRỰC TIẾP (GitHub, Kaggle, LinkedIn, Facebook, Email)
+                     ========================================================== -->
+                <div class="reveal-on-scroll pt-8 border-t max-w-2xl mx-auto pointer-events-auto" style="border-color: var(--border-color);">
+                    <p class="text-[11px] font-mono uppercase tracking-wider mb-4" style="color: var(--text-muted);" data-i18n="hero_socials_title">Direct Connect</p>
+                    <div class="flex flex-wrap items-center justify-center gap-2.5">
+                        
+                        <!-- GitHub -->
+                        <a href="https://github.com/PhThuan-tech" target="_blank" rel="noopener noreferrer" 
+                           class="ui-tag">
+                            <i class="fa-brands fa-github text-sm"></i>
+                            <span>GitHub</span>
+                        </a>
+
+                        <!-- Kaggle -->
+                        <a href="https://www.kaggle.com/thunvng" target="_blank" rel="noopener noreferrer" 
+                           class="ui-tag">
+                            <i class="fa-brands fa-kaggle text-sm"></i>
+                            <span>Kaggle</span>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/thu%E1%BA%ADn-ph%E1%BA%A1m-6b7861423" target="_blank" rel="noopener noreferrer" 
+                           class="ui-tag">
+                            <i class="fa-brands fa-linkedin text-sm"></i>
+                            <span>LinkedIn</span>
+                        </a>
+
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/ph.thuann.151006/" target="_blank" rel="noopener noreferrer" 
+                           class="ui-tag">
+                            <i class="fa-brands fa-facebook text-sm"></i>
+                            <span>Facebook</span>
+                        </a>
+
+                        <!-- Nút sao chép Email -->
+                        <button id="copy-email-btn" data-email="vuogthuan06@gmail.com" 
+                                class="ui-tag cursor-pointer"
+                                title="Click to copy email">
+                            <i class="fa-solid fa-envelope text-sm"></i>
+                            <span>vuogthuan06@gmail.com</span>
+                            <i class="fa-regular fa-copy text-[10px] ml-0.5" style="color: var(--text-muted);"></i>
+                        </button>
+
+                    </div>
+                </div>
+
+                <!-- QUICK IMPACT METRICS FOR HR -->
+                <div class="reveal-on-scroll pt-4 max-w-3xl mx-auto pointer-events-auto">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div class="interactive-card p-3 text-center">
+                            <p class="text-lg sm:text-xl font-bold font-mono" style="color: var(--text-primary);" data-i18n="metric_projects">UET - VNU</p>
+                            <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="metric_projects_sub">3rd-Year Student</p>
+                        </div>
+                        <div class="interactive-card p-3 text-center">
+                            <p class="text-lg sm:text-xl font-bold font-mono" style="color: var(--text-primary);" data-i18n="metric_acc">3.71 / 4.0</p>
+                            <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="metric_acc_sub">Cumulative GPA</p>
+                        </div>
+                        <div class="interactive-card p-3 text-center">
+                            <p class="text-lg sm:text-xl font-bold font-mono" style="color: var(--text-primary);" data-i18n="metric_kaggle">Certifications</p>
+                            <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="metric_kaggle_sub">DataCamp & Stanford</p>
+                        </div>
+                        <div class="interactive-card p-3 text-center">
+                            <p class="text-lg sm:text-xl font-bold font-mono" style="color: var(--text-primary);" data-i18n="metric_paper">Continual AI</p>
+                            <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="metric_paper_sub">DSKT Lab Study</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             DYNAMIC SCROLL-DRIVEN FLUID WAVE (Dải sóng động nhấp nhô mượt mà khi cuộn)
+             ========================================================================== -->
+        <div id="wave-canvas-container">
+            <canvas id="wave-canvas"></canvas>
+        </div>
+
+
+        <!-- ==========================================================================
+             PHẦN 2: BỘ KỸ NĂNG (Tech Stack - Phân nhóm tư duy hệ thống)
+             ========================================================================== -->
+        <section id="skills" class="py-24 px-4 sm:px-6 border-t" style="border-color: var(--border-color);">
+            <div class="max-w-6xl mx-auto space-y-12">
+                
+                <div class="reveal-on-scroll max-w-2xl space-y-2">
+                    <div class="ui-badge">
+                        <div class="ui-badge-inner" data-i18n="skills_badge">01 // SYSTEMATIC TECH STACK</div>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-primary);" data-i18n="skills_title">
+                        End-to-End AI Tech Stack
+                    </h2>
+                    <p class="text-xs sm:text-sm" style="color: var(--text-secondary);" data-i18n="skills_desc">
+                        Categorized by the complete AI lifecycle: from exploratory data analysis and model training to deployment and continual learning research.
+                    </p>
+                </div>
+
+                <!-- 4 Cột Kỹ Năng -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                    <!-- Nhóm 1: Ngôn ngữ -->
+                    <div class="reveal-on-scroll interactive-card p-5 space-y-4">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-mono font-bold" style="background-color: var(--btn-secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
+                                01
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold" style="color: var(--text-primary);" data-i18n="cat_lang">Core Languages</h3>
+                                <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="cat_lang_sub">Programming Foundations</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="ui-tag">Python (Numpy, Scipy)</span>
+                            <span class="ui-tag">C / C++ (STL, OOP)</span>
+                            <span class="ui-tag">SQL (PostgreSQL, MySQL)</span>
+                            <span class="ui-tag">Bash / Linux</span>
+                        </div>
+                    </div>
+
+                    <!-- Nhóm 2: Frameworks & AI -->
+                    <div class="reveal-on-scroll delay-100 interactive-card p-5 space-y-4">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-mono font-bold" style="background-color: var(--btn-secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
+                                02
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold" style="color: var(--text-primary);" data-i18n="cat_ai">AI & Frameworks</h3>
+                                <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="cat_ai_sub">Deep Learning & NLP / CV</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="ui-tag">PyTorch</span>
+                            <span class="ui-tag">Scikit-Learn</span>
+                            <span class="ui-tag">Hugging Face Transformers</span>
+                            <span class="ui-tag">OpenCV</span>
+                            <span class="ui-tag">LangChain & ChromaDB</span>
+                            <span class="ui-tag">YOLOv8 / ByteTrack</span>
+                        </div>
+                    </div>
+
+                    <!-- Nhóm 3: Triển khai & Công cụ -->
+                    <div class="reveal-on-scroll delay-200 interactive-card p-5 space-y-4">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-mono font-bold" style="background-color: var(--btn-secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
+                                03
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold" style="color: var(--text-primary);" data-i18n="cat_ops">Deployment & Tools</h3>
+                                <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="cat_ops_sub">Containerization & Versioning</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="ui-tag">Docker</span>
+                            <span class="ui-tag">FastAPI</span>
+                            <span class="ui-tag">Git / GitHub CI</span>
+                            <span class="ui-tag">ONNX Runtime</span>
+                            <span class="ui-tag">Streamlit</span>
+                            <span class="ui-tag">Jupyter / Kaggle API</span>
+                        </div>
+                    </div>
+
+                    <!-- Nhóm 4: Dữ liệu & Nền tảng -->
+                    <div class="reveal-on-scroll delay-300 interactive-card p-5 space-y-4">
+                        <div class="flex items-center gap-2.5">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-mono font-bold" style="background-color: var(--btn-secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
+                                04
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold" style="color: var(--text-primary);" data-i18n="cat_data">Data & Analytics</h3>
+                                <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="cat_data_sub">EDA & Mathematical Foundations</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="ui-tag">Pandas</span>
+                            <span class="ui-tag">Matplotlib / Seaborn</span>
+                            <span class="ui-tag">Linear Algebra & Calculus</span>
+                            <span class="ui-tag">Probability & Statistics</span>
+                            <span class="ui-tag">PEFT / Continual Learning</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             PHẦN 3: DỰ ÁN THỰC TIỄN CỐT LÕI (Kèm bộ lọc tương tác & Nút xem Kiến trúc)
+             ========================================================================== -->
+        <section id="projects" class="py-24 px-4 sm:px-6 border-t" style="border-color: var(--border-color);">
+            <div class="max-w-6xl mx-auto space-y-12">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="reveal-on-scroll max-w-xl space-y-2">
+                        <div class="ui-badge">
+                            <div class="ui-badge-inner" data-i18n="proj_badge">02 // CORE PROJECTS</div>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-primary);" data-i18n="proj_title">
+                            Featured AI & Engineering Projects
+                        </h2>
+                        <p class="text-xs sm:text-sm" style="color: var(--text-secondary);" data-i18n="proj_desc">
+                            Real-world end-to-end applications demonstrating problem formulation, robust pipeline engineering, and measurable metrics.
+                        </p>
+                    </div>
+
+                    <!-- Project Category Filter Tabs -->
+                    <div class="reveal-on-scroll topbar-segmented-container">
+                        <button data-filter="all" class="filter-btn active" data-i18n="filter_all">All (3)</button>
+                        <button data-filter="cv" class="filter-btn" data-i18n="filter_cv">Computer Vision</button>
+                        <button data-filter="genai" class="filter-btn" data-i18n="filter_genai">NLP & LLMs</button>
+                        <button data-filter="ml" class="filter-btn" data-i18n="filter_ml">Machine Learning</button>
+                    </div>
+                </div>
+
+                <div class="space-y-8" id="projects-container">
+
+                    <!-- ==============================================================
+                         DỰ ÁN 1: COMPUTER VISION
+                         ============================================================== -->
+                    <div class="reveal-on-scroll interactive-card p-6 sm:p-8 space-y-6 project-item" data-category="cv">
+                        <div class="flex flex-wrap items-center justify-between gap-3 border-b pb-4" style="border-color: var(--border-color);">
+                            <div class="flex items-center gap-2">
+                                <span class="ui-badge">
+                                    <span class="ui-badge-inner text-[10px]" data-i18n="p1_tag">COMPUTER VISION</span>
+                                </span>
+                                <span class="text-xs font-mono" style="color: var(--text-muted);" data-i18n="p1_sub">Production Ready</span>
+                            </div>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <button class="view-arch-btn text-sky-400 hover:underline flex items-center gap-1 font-semibold cursor-pointer" data-arch-key="cv">
+                                    <i class="fa-solid fa-sitemap text-[11px]"></i>
+                                    <span data-i18n="btn_arch_view">View Architecture</span>
+                                </button>
+                                <a href="https://github.com/PhThuan-tech?tab=repositories" target="_blank" rel="noopener noreferrer" 
+                                   class="hover:opacity-100 flex items-center gap-1" style="color: var(--text-secondary);">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                            <div class="lg:col-span-8 space-y-4">
+                                <h3 class="text-xl sm:text-2xl font-bold" style="color: var(--text-primary);" data-i18n="p1_title">
+                                    Real-Time Traffic Monitoring & Multi-Object Tracking System
+                                </h3>
+
+                                <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-secondary);" data-i18n="p1_desc">
+                                    An end-to-end computer vision solution that detects, classifies, and tracks vehicle trajectories in real-time from high-resolution traffic camera streams with low latency.
+                                </p>
+
+                                <!-- Pipeline Kỹ thuật -->
+                                <div class="p-3 rounded-lg font-mono text-xs space-y-1" style="background-color: var(--bg-surface-2); border: 1px solid var(--border-color); color: var(--text-secondary);">
+                                    <span class="font-medium text-[11px] block" style="color: var(--text-primary);">
+                                        <i class="fa-solid fa-diagram-project mr-1"></i> <span data-i18n="p1_pipeline_label">Technical Architecture Pipeline:</span>
+                                    </span>
+                                    <span data-i18n="p1_pipeline">RTSP Stream → YOLOv8 (ONNX/TensorRT) → ByteTrack / DeepSORT → FastAPI Async Worker → Redis Dashboard</span>
+                                </div>
+
+                                <!-- Tech tags -->
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="ui-tag">Python</span>
+                                    <span class="ui-tag">PyTorch</span>
+                                    <span class="ui-tag">YOLOv8</span>
+                                    <span class="ui-tag">ByteTrack</span>
+                                    <span class="ui-tag">FastAPI</span>
+                                    <span class="ui-tag">Docker</span>
+                                </div>
+                            </div>
+
+                            <!-- Metrics Box -->
+                            <div class="lg:col-span-4 grid grid-cols-2 gap-2.5">
+                                <div class="p-3.5 rounded-lg border text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                                    <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="p1_m1_label">Accuracy</p>
+                                    <p class="text-base sm:text-lg font-bold font-mono" style="color: var(--text-primary);" data-i18n="p1_m1_val">91.4% mAP50</p>
+                                </div>
+                                <div class="p-3.5 rounded-lg border text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                                    <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="p1_m2_label">Inference Latency</p>
+                                    <p class="text-base sm:text-lg font-bold font-mono" style="color: var(--text-primary);" data-i18n="p1_m2_val">45+ FPS (GPU T4)</p>
+                                </div>
+                                <div class="p-3.5 rounded-lg border col-span-2 text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                                    <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="p1_m3_label">Multi-Object Tracking</p>
+                                    <p class="text-base font-bold font-mono" style="color: var(--text-primary);" data-i18n="p1_m3_val">84.2% MOTA Score</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ==============================================================
+                         DỰ ÁN 2: NLP / GENERATIVE AI (RAG ASSISTANT)
+                         ============================================================== -->
+                    <div class="reveal-on-scroll interactive-card p-6 sm:p-8 space-y-6 project-item" data-category="genai">
+                        <div class="flex flex-wrap items-center justify-between gap-3 border-b pb-4" style="border-color: var(--border-color);">
+                            <div class="flex items-center gap-2">
+                                <span class="ui-badge">
+                                    <span class="ui-badge-inner text-[10px]" data-i18n="p2_tag">NLP & GENERATIVE AI</span>
+                                </span>
+                                <span class="text-xs font-mono" style="color: var(--text-muted);" data-i18n="p2_sub">Enterprise Ready</span>
+                            </div>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <button class="view-arch-btn text-purple-400 hover:underline flex items-center gap-1 font-semibold cursor-pointer" data-arch-key="genai">
+                                    <i class="fa-solid fa-sitemap text-[11px]"></i>
+                                    <span data-i18n="btn_arch_view">View Architecture</span>
+                                </button>
+                                <a href="https://github.com/PhThuan-tech?tab=repositories" target="_blank" rel="noopener noreferrer" 
+                                   class="hover:opacity-100 flex items-center gap-1" style="color: var(--text-secondary);">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                            <div class="lg:col-span-8 space-y-4">
+                                <h3 class="text-xl sm:text-2xl font-bold" style="color: var(--text-primary);" data-i18n="p2_title">
+                                    Enterprise Document Q&A Assistant (RAG Pipeline)
+                                </h3>
+
+                                <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-secondary);" data-i18n="p2_desc">
+                                    An enterprise-grade Retrieval-Augmented Generation (RAG) assistant enabling accurate semantic search and grounded answers across corporate documents (PDF, Docx) with zero hallucination.
+                                </p>
+
+                                <!-- Pipeline Kỹ thuật -->
+                                <div class="p-3 rounded-lg font-mono text-xs space-y-1" style="background-color: var(--bg-surface-2); border: 1px solid var(--border-color); color: var(--text-secondary);">
+                                    <span class="font-medium text-[11px] block" style="color: var(--text-primary);">
+                                        <i class="fa-solid fa-diagram-project mr-1"></i> <span data-i18n="p2_pipeline_label">Technical Architecture Pipeline:</span>
+                                    </span>
+                                    <span data-i18n="p2_pipeline">Document Parsing → BGE-M3 Embeddings → Hybrid Retrieval (BM25 + ChromaDB) → Cohere Rerank → LLM Synthesis</span>
+                                </div>
+
+                                <!-- Tech tags -->
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="ui-tag">Python</span>
+                                    <span class="ui-tag">LangChain</span>
+                                    <span class="ui-tag">ChromaDB</span>
+                                    <span class="ui-tag">Llama 3 / Gemini</span>
+                                    <span class="ui-tag">RAGAS Evaluation</span>
+                                    <span class="ui-tag">Streamlit</span>
+                                </div>
+                            </div>
+
+                            <!-- Metrics Box -->
+                            <div class="lg:col-span-4 grid grid-cols-2 gap-2.5">
+                                <div class="p-3.5 rounded-lg border text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                                    <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="p2_m1_label">Context Recall</p>
+                                    <p class="text-base sm:text-lg font-bold font-mono" style="color: var(--text-primary);" data-i18n="p2_m1_val">92.8% (RAGAS)</p>
+                                </div>
+                                <div class="p-3.5 rounded-lg border text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                                    <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="p2_m2_label">Faithfulness</p>
+                                    <p class="text-base sm:text-lg font-bold font-mono" style="color: var(--text-primary);" data-i18n="p2_m2_val">94.5% Grounded</p>
+                                </div>
+                                <div class="p-3.5 rounded-lg border col-span-2 text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                                    <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="p2_m3_label">Average Query Latency</p>
+                                    <p class="text-base font-bold font-mono" style="color: var(--text-primary);" data-i18n="p2_m3_val">&lt; 1.2s Response</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- ==============================================================
+                         DỰ ÁN 3: CONTINUAL LEARNING & RESEARCH (RSIAT REPRODUCTION)
+                         ============================================================== -->
+                    <div class="reveal-on-scroll interactive-card p-6 sm:p-8 space-y-6 project-item" data-category="ml">
+                        <div class="flex flex-wrap items-center justify-between gap-3 border-b pb-4" style="border-color: var(--border-color);">
+                            <div class="flex items-center gap-2">
+                                <span class="ui-badge">
+                                    <span class="ui-badge-inner text-[10px]" data-i18n="p3_tag">CONTINUAL LEARNING & ML</span>
+                                </span>
+                                <span class="text-xs font-mono" style="color: var(--text-muted);" data-i18n="p3_sub">Research & Applied ML</span>
+                            </div>
+                            <div class="flex items-center gap-3 font-mono text-xs">
+                                <button class="view-arch-btn text-emerald-400 hover:underline flex items-center gap-1 font-semibold cursor-pointer" data-arch-key="ml">
+                                    <i class="fa-solid fa-sitemap text-[11px]"></i>
+                                    <span data-i18n="btn_arch_view">View Architecture</span>
+                                </button>
+                                <a href="https://github.com/PhThuan-tech?tab=repositories" target="_blank" rel="noopener noreferrer" 
+                                   class="hover:opacity-100 flex items-center gap-1" style="color: var(--text-secondary);">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                            <div class="lg:col-span-8 space-y-4">
+                                <h3 class="text-xl sm:text-2xl font-bold" style="color: var(--text-primary);" data-i18n="p3_title">
+                                    RSIAT: Continual Learning & Representation-Steered Adapter Tuning
+                                </h3>
+
+                                <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-secondary);" data-i18n="p3_desc">
+                                    Research reproduction and benchmarking of Representation-Steered Incremental Adapter Tuning (RSIAT) for lifelong continual learning without catastrophic forgetting.
+                                </p>
+
+                                <!-- Pipeline Kỹ thuật -->
+                                <div class="p-3 rounded-lg font-mono text-xs space-y-1" style="background-color: var(--bg-surface-2); border: 1px solid var(--border-color); color: var(--text-secondary);">
+                                    <span class="font-medium text-[11px] block" style="color: var(--text-primary);">
+                                        <i class="fa-solid fa-diagram-project mr-1"></i> <span data-i18n="p3_pipeline_label">Technical Architecture Pipeline:</span>
+                                    </span>
+                                    <span data-i18n="p3_pipeline">Incremental Task Stream → Feature Extractor (Backbone) → Representation Steering Adapter → Contrastive Memory Buffer → Evaluation Matrix</span>
+                                </div>
+
+                                <!-- Tech tags -->
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="ui-tag">Python</span>
+                                    <span class="ui-tag">PyTorch</span>
+                                    <span class="ui-tag">Continual Learning</span>
+                                    <span class="ui-tag">PEFT / Adapters</span>
+                                    <span class="ui-tag">Vision Transformers</span>
+                                </div>
+                            </div>
+
+                            <!-- Metrics Box -->
+                            <div class="lg:col-span-4 grid grid-cols-2 gap-2.5">
+                                <div class="p-3.5 rounded-lg border text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                                    <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="p3_m1_label">Average Accuracy</p>
+                                    <p class="text-base sm:text-lg font-bold font-mono" style="color: var(--text-primary);" data-i18n="p3_m1_val">86.7% Top-1</p>
+                                </div>
+                                <div class="p-3.5 rounded-lg border text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                                    <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="p3_m2_label">Backward Transfer (BWT)</p>
+                                    <p class="text-base sm:text-lg font-bold font-mono" style="color: var(--text-primary);" data-i18n="p3_m2_val">-1.8% Forgetting</p>
+                                </div>
+                                <div class="p-3.5 rounded-lg border col-span-2 text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                                    <p class="text-[11px] font-mono" style="color: var(--text-muted);" data-i18n="p3_m3_label">Trainable Params</p>
+                                    <p class="text-base font-bold font-mono" style="color: var(--text-primary);" data-i18n="p3_m3_val">&lt; 3.5% (PEFT)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             TÍNH NĂNG MỚI ĐỘT PHÁ: LIVE AI INTERACTIVE PLAYGROUND
+             ========================================================================== -->
+        <section id="playground" class="py-24 px-4 sm:px-6 border-t" style="border-color: var(--border-color);">
+            <div class="max-w-4xl mx-auto space-y-8">
+                
+                <div class="reveal-on-scroll space-y-2 text-center">
+                    <div class="ui-badge">
+                        <div class="ui-badge-inner" data-i18n="play_badge">03 // LIVE INTERACTIVE DEMO</div>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-primary);" data-i18n="play_title">
+                        Interactive AI Query Playground
+                    </h2>
+                    <p class="text-xs sm:text-sm max-w-xl mx-auto" style="color: var(--text-secondary);" data-i18n="play_desc">
+                        Experience a simulated enterprise RAG query pipeline in real-time. Pick a sample query or inspect retrieval steps and grounded output generation.
+                    </p>
+                </div>
+
+                <div class="reveal-on-scroll interactive-card p-6 sm:p-8 space-y-6">
+                    
+                    <!-- Preset queries -->
+                    <div class="space-y-2">
+                        <label class="text-xs font-mono font-medium block" style="color: var(--text-secondary);" data-i18n="play_label_query">
+                            Select or type a business inquiry:
+                        </label>
+                        <div class="flex flex-wrap gap-2">
+                            <button data-preset="q1" class="playground-preset active ui-tag text-xs cursor-pointer">
+                                📊 "What is the Q3 operating profit impact from GPU inference optimization?"
+                            </button>
+                            <button data-preset="q2" class="playground-preset ui-tag text-xs cursor-pointer">
+                                🧠 "What are the stability metrics achieved by RSIAT continual learning?"
+                            </button>
+                            <button data-preset="q3" class="playground-preset ui-tag text-xs cursor-pointer">
+                                🚗 "What are the traffic density metrics at Intersection B?"
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Input query & Run button -->
+                    <div class="flex flex-col sm:flex-row gap-2.5">
+                        <input id="playground-query-input" type="text" 
+                               value="What is the Q3 operating profit impact from GPU inference optimization?" 
+                               class="w-full px-4 py-2.5 rounded-lg text-xs font-mono border focus:outline-none" 
+                               style="background-color: var(--bg-surface-2); border-color: var(--border-color); color: var(--text-primary);">
+                        
+                        <button id="run-inference-btn" class="ui-btn-primary px-6 py-2.5 text-xs font-mono flex items-center justify-center gap-1.5 whitespace-nowrap cursor-pointer">
+                            <i class="fa-solid fa-play text-xs"></i>
+                            <span data-i18n="play_btn_run">Run Inference Simulation</span>
+                        </button>
+                    </div>
+
+                    <!-- Live Inference Process Logs -->
+                    <div id="playground-logs" class="hidden p-3.5 rounded-lg border space-y-1.5" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                    </div>
+
+                    <!-- Answer Output Box -->
+                    <div id="playground-result" class="hidden p-4 rounded-xl border space-y-3" style="background-color: var(--bg-surface-3); border-color: var(--border-active);">
+                        <div class="flex items-center justify-between text-xs font-mono">
+                            <span class="flex items-center gap-1.5 font-bold" style="color: var(--text-primary);">
+                                <i class="fa-solid fa-robot text-sky-400"></i> Grounded AI Response:
+                            </span>
+                            <span class="text-[11px] text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i>Faithfulness: 98.4%</span>
+                        </div>
+                        
+                        <p id="playground-answer-text" class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-primary);">
+                        </p>
+
+                        <div class="pt-2 border-t flex flex-wrap items-center gap-2 text-[11px] font-mono" style="border-color: var(--border-color); color: var(--text-muted);">
+                            <span data-i18n="play_sources">Grounded Sources & Citations:</span>
+                            <span class="ui-tag text-[10px]"><i class="fa-solid fa-file-lines mr-1"></i>Doc_Q3_Finance.pdf:L42</span>
+                            <span class="ui-tag text-[10px]"><i class="fa-solid fa-database mr-1"></i>Vector_Chunk_#8821</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             THẾ MẠNH & GIÁ TRỊ BẢN THÂN (Value Proposition)
+             ========================================================================== -->
+        <section id="value-prop" class="py-20 px-4 sm:px-6 border-t" style="border-color: var(--border-color);">
+            <div class="max-w-6xl mx-auto space-y-12">
+                
+                <div class="reveal-on-scroll max-w-2xl space-y-2">
+                    <div class="ui-badge">
+                        <div class="ui-badge-inner" data-i18n="val_badge">04 // VALUE PROPOSITION</div>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-primary);" data-i18n="val_title">
+                        Why Hire Me: Core Strengths
+                    </h2>
+                    <p class="text-xs sm:text-sm" style="color: var(--text-secondary);" data-i18n="val_desc">
+                        Combining top academic excellence from VNU-UET with hands-on development skills across modern AI frameworks and research methods.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="reveal-on-scroll interactive-card p-6 space-y-3">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-base" style="background-color: var(--btn-secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <h3 class="text-base font-bold" style="color: var(--text-primary);" data-i18n="val_1_title">Strong Mathematical Foundations</h3>
+                        <p class="text-xs leading-relaxed" style="color: var(--text-secondary);" data-i18n="val_1_desc">
+                            Top academic standing at VNU-UET (GPA 3.71/4.0) with comprehensive mastery of Linear Algebra, Probability & Statistics, Optimization, and Algorithm Design.
+                        </p>
+                    </div>
+
+                    <div class="reveal-on-scroll delay-100 interactive-card p-6 space-y-3">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-base" style="background-color: var(--btn-secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-base font-bold" style="color: var(--text-primary);" data-i18n="val_2_title">Computer Vision & NLP Focus</h3>
+                        <p class="text-xs leading-relaxed" style="color: var(--text-secondary);" data-i18n="val_2_desc">
+                            Hands-on experience fine-tuning modern Transformer models, YOLO architectures, and deploying end-to-end inference pipelines.
+                        </p>
+                    </div>
+
+                    <div class="reveal-on-scroll delay-200 interactive-card p-6 space-y-3">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center text-base" style="background-color: var(--btn-secondary-bg); border: 1px solid var(--border-color); color: var(--text-primary);">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="text-base font-bold" style="color: var(--text-primary);" data-i18n="val_3_title">Continual Learning & Research Mindset</h3>
+                        <p class="text-xs leading-relaxed" style="color: var(--text-secondary);" data-i18n="val_3_desc">
+                            Active lab participation studying Continual Learning (RSIAT), parameter-efficient fine-tuning (PEFT), and rapid paper reproduction capability.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             PHẦN 4: HỌC VẤN & THÀNH TÍCH (Education, Certifications & Awards)
+             ========================================================================== -->
+        <section id="education" class="py-24 px-4 sm:px-6 border-t" style="border-color: var(--border-color);">
+            <div class="max-w-6xl mx-auto space-y-12">
+                
+                <div class="reveal-on-scroll max-w-2xl space-y-2">
+                    <div class="ui-badge">
+                        <div class="ui-badge-inner" data-i18n="edu_badge">05 // CREDENTIALS & HONORS</div>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-primary);" data-i18n="edu_title">
+                        Education, Certifications & Awards
+                    </h2>
+                    <p class="text-xs sm:text-sm" style="color: var(--text-secondary);" data-i18n="edu_desc">
+                        Solid academic standing at VNU-UET accompanied by internationally verified certifications and university honors.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <!-- Học Vấn -->
+                    <div class="reveal-on-scroll interactive-card p-6 space-y-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono uppercase" style="color: var(--text-muted);" data-i18n="edu_sec1">01 // Formal Education</span>
+                        </div>
+                        <h3 class="text-base font-bold" style="color: var(--text-primary);" data-i18n="edu_uni">Trường ĐH Công Nghệ - ĐHQGHN (UET-VNU)</h3>
+                        <p class="text-xs font-mono" style="color: var(--text-secondary);" data-i18n="edu_major">Major: Artificial Intelligence & Computer Science</p>
+                        
+                        <div class="pt-2 space-y-2 text-xs" style="color: var(--text-secondary);">
+                            <div class="flex justify-between border-b pb-2 font-mono" style="border-color: var(--border-color);">
+                                <span>Period:</span>
+                                <span style="color: var(--text-primary);">2024 — Present (Year 3)</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2 font-mono" style="border-color: var(--border-color);">
+                                <span data-i18n="edu_gpa_label">Current GPA:</span>
+                                <span class="font-bold text-emerald-400" data-i18n="edu_gpa">3.71 / 4.0 (Distinction)</span>
+                            </div>
+                        </div>
+                        <p class="text-xs pt-1 leading-relaxed" style="color: var(--text-muted);" data-i18n="edu_thesis">
+                            3rd-Year Undergraduate (2024 - Present). Active member in AI Research Lab focusing on Continual Learning.
+                        </p>
+                    </div>
+
+                    <!-- Chứng Chỉ Đã Đạt -->
+                    <div class="reveal-on-scroll delay-100 interactive-card p-6 space-y-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono uppercase" style="color: var(--text-muted);" data-i18n="edu_sec2">02 // Verified Certifications</span>
+                        </div>
+                        
+                        <div class="space-y-3 pt-1">
+                            <div class="border-b pb-2 space-y-0.5" style="border-color: var(--border-color);">
+                                <h4 class="text-xs font-bold" style="color: var(--text-primary);" data-i18n="cert_1_name">AI Engineer for Developers Associate</h4>
+                                <p class="text-[11px]" style="color: var(--text-secondary);" data-i18n="cert_1_by">DataCamp Certified</p>
+                            </div>
+                            <div class="border-b pb-2 space-y-0.5" style="border-color: var(--border-color);">
+                                <h4 class="text-xs font-bold" style="color: var(--text-primary);" data-i18n="cert_2_name">Machine Learning Specialization</h4>
+                                <p class="text-[11px]" style="color: var(--text-secondary);" data-i18n="cert_2_by">DeepLearning.AI, Stanford Online / CPD & Coursera</p>
+                            </div>
+                            <div class="space-y-0.5">
+                                <h4 class="text-xs font-bold" style="color: var(--text-primary);" data-i18n="cert_3_name">Supervised & Unsupervised Learning</h4>
+                                <p class="text-[11px]" style="color: var(--text-secondary);" data-i18n="cert_3_by">Stanford University / DeepLearning.AI</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Giải Thưởng & Thành Tích -->
+                    <div class="reveal-on-scroll delay-200 interactive-card p-6 space-y-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-mono uppercase" style="color: var(--text-muted);" data-i18n="edu_sec3">03 // Awards & Honors</span>
+                        </div>
+                        
+                        <div class="space-y-3 pt-1">
+                            <div class="border-b pb-2 space-y-0.5" style="border-color: var(--border-color);">
+                                <h4 class="text-xs font-bold" style="color: var(--text-primary);" data-i18n="award_1_name">Academic Excellence Scholarship (2024 - 2025)</h4>
+                                <p class="text-[11px]" style="color: var(--text-secondary);" data-i18n="award_1_desc">Awarded by VNU-UET for top-tier academic standing and research potential.</p>
+                            </div>
+                            <div class="border-b pb-2 space-y-0.5" style="border-color: var(--border-color);">
+                                <h4 class="text-xs font-bold" style="color: var(--text-primary);" data-i18n="award_2_name">5-Good Student Award (Sinh viên 5 tốt) 2025 - 2026</h4>
+                                <p class="text-[11px]" style="color: var(--text-secondary);" data-i18n="award_2_desc">Achieved prestigious '5-Good Student' title at both VNU University Level and Faculty Level.</p>
+                            </div>
+                            <div class="space-y-0.5">
+                                <h4 class="text-xs font-bold" style="color: var(--text-primary);" data-i18n="award_3_name">AI Research Lab Recognition</h4>
+                                <p class="text-[11px]" style="color: var(--text-secondary);" data-i18n="award_3_desc">Proactive contributions in paper reproduction and empirical continual learning experiments.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             PHẦN 5: NGHIÊN CỨU LAB & TÁI HIỆN (Continual Learning / RSIAT)
+             ========================================================================== -->
+        <section id="research" class="py-24 px-4 sm:px-6 border-t" style="border-color: var(--border-color);">
+            <div class="max-w-6xl mx-auto space-y-12">
+                
+                <div class="reveal-on-scroll max-w-2xl space-y-2">
+                    <div class="ui-badge">
+                        <div class="ui-badge-inner" data-i18n="res_badge">06 // LAB RESEARCH & REPRODUCTION</div>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-primary);" data-i18n="res_title">
+                        Continual Learning & Paper Reproduction
+                    </h2>
+                    <p class="text-xs sm:text-sm" style="color: var(--text-secondary);" data-i18n="res_desc">
+                        In-depth research participation at the AI Laboratory investigating lifelong learning methods without catastrophic forgetting.
+                    </p>
+                </div>
+
+                <div class="reveal-on-scroll interactive-card p-6 sm:p-8 space-y-4 max-w-4xl">
+                    <div class="flex flex-wrap items-center justify-between gap-2 border-b pb-3" style="border-color: var(--border-color);">
+                        <span class="text-xs font-mono" style="color: var(--text-secondary);" data-i18n="res_conf">AI Research Lab • Continual Learning Study</span>
+                        <span class="text-xs font-mono text-emerald-500 font-semibold" data-i18n="res_status">Benchmarked & Implemented</span>
+                    </div>
+
+                    <h3 class="text-lg sm:text-xl font-bold" style="color: var(--text-primary);" data-i18n="res_paper_title">
+                        RSIAT: Representation-Steered Incremental Adapter Tuning for Continual Learning
+                    </h3>
+
+                    <p class="text-xs font-mono" style="color: var(--text-secondary);" data-i18n="res_authors">
+                        Studied & Implemented by <strong>Pham Van Vuong Thuan</strong> (Ref: CVPR / Continual Learning)
+                    </p>
+
+                    <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-secondary);" data-i18n="res_abstract">
+                        Investigated and reproduced parameter-efficient adapter tuning mechanisms (RSIAT) for incremental vision tasks, maintaining stability-plasticity balance and reducing catastrophic forgetting to under 2%.
+                    </p>
+
+                    <!-- Links -->
+                    <div class="pt-2 flex flex-wrap gap-4 font-mono text-xs">
+                        <a href="https://github.com/PhThuan-tech?tab=repositories" target="_blank" rel="noopener noreferrer" class="hover:underline flex items-center gap-1.5" style="color: var(--text-primary);">
+                            <i class="fa-brands fa-github text-[11px]"></i>
+                            <span data-i18n="res_link_code">View GitHub Repositories</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             PHẦN 6: RECRUITER FAQ (Giải đáp thắc mắc của HR)
+             ========================================================================== -->
+        <section id="faq" class="py-24 px-4 sm:px-6 border-t" style="border-color: var(--border-color);">
+            <div class="max-w-4xl mx-auto space-y-12">
+                
+                <div class="reveal-on-scroll space-y-2 text-center">
+                    <div class="ui-badge">
+                        <div class="ui-badge-inner" data-i18n="faq_badge">07 // RECRUITER FAQ</div>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight" style="color: var(--text-primary);" data-i18n="faq_title">
+                        Frequently Asked Questions
+                    </h2>
+                    <p class="text-xs sm:text-sm max-w-xl mx-auto" style="color: var(--text-secondary);" data-i18n="faq_desc">
+                        Quick answers to common recruiter questions regarding availability, internship/fresher readiness, and technical skills.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    
+                    <!-- FAQ 1 -->
+                    <div class="reveal-on-scroll faq-item is-open">
+                        <button class="faq-header">
+                            <span data-i18n="faq_q1">What role types and working hours are you open to?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-body">
+                            <p data-i18n="faq_a1">I am open to AI Engineer Intern, Fresher AI Engineer, or Data Scientist positions with flexible scheduling (Part-time or Full-time around university coursework).</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="reveal-on-scroll delay-100 faq-item">
+                        <button class="faq-header">
+                            <span data-i18n="faq_q2">What work arrangement do you prefer (On-site, Hybrid, Remote)?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-body">
+                            <p data-i18n="faq_a2">I am available for On-site work in Hanoi (near Cau Giay / VNU-UET campus), as well as Hybrid or Remote arrangements.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="reveal-on-scroll delay-200 faq-item">
+                        <button class="faq-header">
+                            <span data-i18n="faq_q3">What are your core technical strengths in AI?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-body">
+                            <p data-i18n="faq_a3">My strongest competencies are in Python, PyTorch, Computer Vision (YOLO/Tracking), NLP & LLM pipelines (RAG, Embeddings, LangChain), and Continual Learning research (PEFT/Adapters) with GPA 3.71/4.0.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="reveal-on-scroll delay-300 faq-item">
+                        <button class="faq-header">
+                            <span data-i18n="faq_q4">How do you balance research and practical engineering?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-body">
+                            <p data-i18n="faq_a4">I believe strong theoretical understanding (from VNU-UET and Stanford ML courses) empowers cleaner and more optimized engineering solutions in production environments.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             FOOTER & CONTACT LINKS
+             ========================================================================== -->
+        <footer class="py-16 px-4 sm:px-6 border-t" style="border-color: var(--border-color); background-color: var(--bg-surface-1);">
+            <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs font-mono" style="color: var(--text-muted);">
+                
+                <div class="space-y-1 text-center sm:text-left">
+                    <p class="font-medium" style="color: var(--text-primary);" data-i18n="footer_copy">© 2025 Pham Van Vuong Thuan (PhThuan-tech) • VNU University of Engineering and Technology (UET)</p>
+                    <p data-i18n="footer_sub">AI Engineer • Computer Vision & NLP</p>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="mailto:vuogthuan06@gmail.com" class="hover:opacity-100 transition-opacity" style="color: var(--text-secondary);">Email</a>
+                    <a href="https://github.com/PhThuan-tech" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 transition-opacity" style="color: var(--text-secondary);">GitHub</a>
+                    <a href="https://www.linkedin.com/in/thu%E1%BA%ADn-ph%E1%BA%A1m-6b7861423" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 transition-opacity" style="color: var(--text-secondary);">LinkedIn</a>
+                    <a href="https://www.kaggle.com/thunvng" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 transition-opacity" style="color: var(--text-secondary);">Kaggle</a>
+                    <a href="https://www.facebook.com/ph.thuann.151006/" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 transition-opacity" style="color: var(--text-secondary);">Facebook</a>
+                </div>
+
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- ==========================================================================
+         INTERACTIVE ARCHITECTURE MODAL
+         ========================================================================== -->
+    <div id="architecture-modal" class="modal-backdrop">
+        <div class="modal-content p-6 sm:p-8 space-y-6">
+            <div class="flex items-center justify-between border-b pb-4" style="border-color: var(--border-color);">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-network-wired text-sky-400"></i>
+                    <h3 id="modal-arch-title" class="text-base sm:text-lg font-bold" style="color: var(--text-primary);">
+                        Technical Architecture Pipeline
+                    </h3>
+                </div>
+                <button id="modal-close-btn" class="p-1.5 rounded-lg border hover:bg-white/10 text-xs font-mono cursor-pointer" style="border-color: var(--border-color); color: var(--text-primary);">
+                    ✕ Close
+                </button>
+            </div>
+
+            <!-- Pipeline Flow Description -->
+            <div class="p-4 rounded-xl font-mono text-xs leading-relaxed space-y-2" style="background-color: var(--bg-surface-2); border: 1px solid var(--border-color); color: var(--text-secondary);">
+                <p class="font-bold text-[11px] uppercase tracking-wider text-sky-400">End-to-End Execution Flow:</p>
+                <p id="modal-arch-pipeline" style="color: var(--text-primary);"></p>
+            </div>
+
+            <!-- Technical Key Highlights -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs">
+                <div class="p-3 rounded-lg border text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                    <p style="color: var(--text-muted);">Framework</p>
+                    <p class="font-bold mt-1" style="color: var(--text-primary);">PyTorch / PEFT</p>
+                </div>
+                <div class="p-3 rounded-lg border text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                    <p style="color: var(--text-muted);">Methodology</p>
+                    <p class="font-bold mt-1" style="color: var(--text-primary);">Continual Learning (RSIAT)</p>
+                </div>
+                <div class="p-3 rounded-lg border text-center" style="background-color: var(--bg-surface-2); border-color: var(--border-color);">
+                    <p style="color: var(--text-muted);">Organization</p>
+                    <p class="font-bold mt-1" style="color: var(--text-primary);">VNU-UET AI Lab</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        Copied to clipboard!
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

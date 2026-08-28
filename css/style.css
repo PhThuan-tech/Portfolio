@@ -1,0 +1,513 @@
+/* ==========================================================================
+   PORTFOLIO AI - MODERN MULTI-THEME, FLOATING TOP BAR & DYNAMIC WAVE
+   Themes: Dark (Default), Light, Solar Warm
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* --- 1. THEME DEFINITIONS --- */
+:root, [data-theme="dark"] {
+  --bg-body: #08090c;
+  --bg-header: rgba(10, 12, 16, 0.82);
+  --bg-surface-1: #0e1117;
+  --bg-surface-2: #151922;
+  --bg-surface-3: #1c2230;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.22);
+  --border-active: #38bdf8;
+  --text-primary: #f4f4f6;
+  --text-secondary: #9aa0ad;
+  --text-muted: #646a78;
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #000000;
+  --btn-secondary-bg: rgba(255, 255, 255, 0.04);
+  --badge-bg: rgba(8, 9, 12, 0.9);
+  --badge-border: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.06) 35%, rgba(255,255,255,0.02) 65%, rgba(255,255,255,0.2) 100%);
+  --canvas-dot: 255, 255, 255;
+  --wave-color-1: rgba(56, 189, 248, 0.22);
+  --wave-color-2: rgba(99, 102, 241, 0.18);
+  --wave-color-3: rgba(168, 85, 247, 0.12);
+  --theme-btn-active-bg: #1e293b;
+  --theme-btn-active-text: #38bdf8;
+  --theme-btn-active-border: rgba(56, 189, 248, 0.4);
+  --scroll-progress: #38bdf8;
+  --box-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --modal-overlay: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] {
+  --bg-body: #f8fafc;
+  --bg-header: rgba(248, 250, 252, 0.88);
+  --bg-surface-1: #ffffff;
+  --bg-surface-2: #f1f5f9;
+  --bg-surface-3: #e2e8f0;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.2);
+  --border-active: #2563eb;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --btn-primary-bg: #0f172a;
+  --btn-primary-text: #ffffff;
+  --btn-secondary-bg: rgba(0, 0, 0, 0.04);
+  --badge-bg: rgba(255, 255, 255, 0.95);
+  --badge-border: linear-gradient(135deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.04) 100%);
+  --canvas-dot: 30, 41, 59;
+  --wave-color-1: rgba(14, 165, 233, 0.25);
+  --wave-color-2: rgba(59, 130, 246, 0.18);
+  --wave-color-3: rgba(99, 102, 241, 0.12);
+  --theme-btn-active-bg: #0f172a;
+  --theme-btn-active-text: #ffffff;
+  --theme-btn-active-border: #0f172a;
+  --scroll-progress: #2563eb;
+  --box-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --modal-overlay: rgba(15, 23, 42, 0.6);
+}
+
+[data-theme="solar"] {
+  --bg-body: #fdf6e2;
+  --bg-header: rgba(253, 246, 226, 0.9);
+  --bg-surface-1: #f6ecdc;
+  --bg-surface-2: #ede1cd;
+  --bg-surface-3: #dfd0bb;
+  --border-color: rgba(130, 85, 45, 0.12);
+  --border-hover: rgba(130, 85, 45, 0.3);
+  --border-active: #b45309;
+  --text-primary: #2d241d;
+  --text-secondary: #6c5a4d;
+  --text-muted: #9c8a7c;
+  --btn-primary-bg: #2d241d;
+  --btn-primary-text: #fdf6e2;
+  --btn-secondary-bg: rgba(130, 85, 45, 0.06);
+  --badge-bg: rgba(253, 246, 226, 0.95);
+  --badge-border: linear-gradient(135deg, rgba(130,85,45,0.2) 0%, rgba(130,85,45,0.05) 100%);
+  --canvas-dot: 130, 85, 45;
+  --wave-color-1: rgba(217, 119, 6, 0.28);
+  --wave-color-2: rgba(180, 83, 9, 0.2);
+  --wave-color-3: rgba(146, 64, 14, 0.14);
+  --theme-btn-active-bg: #b45309;
+  --theme-btn-active-text: #fdf6e2;
+  --theme-btn-active-border: #b45309;
+  --scroll-progress: #b45309;
+  --box-shadow-card: 0 4px 20px rgba(130, 85, 45, 0.06);
+  --modal-overlay: rgba(45, 36, 29, 0.7);
+}
+
+/* --- 2. GLOBAL STYLES --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.2s ease;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+code, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Scroll Progress Bar in Top Bar */
+#scroll-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--scroll-progress);
+  width: 0%;
+  transition: width 0.05s ease-out;
+  box-shadow: 0 0 8px var(--scroll-progress);
+}
+
+/* --- 3. TOP BAR & SWITCHERS --- */
+.topbar-segmented-container {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 9px;
+  background-color: var(--btn-secondary-bg);
+  border: 1px solid var(--border-color);
+  gap: 2px;
+}
+
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-btn:hover {
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.theme-btn.active {
+  background-color: var(--theme-btn-active-bg) !important;
+  color: var(--theme-btn-active-text) !important;
+  border-color: var(--theme-btn-active-border) !important;
+  font-weight: 600;
+}
+
+.lang-btn {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+  cursor: pointer;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--text-primary);
+}
+
+.lang-btn.active {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-weight: 600;
+}
+
+/* --- 4. DYNAMIC FLUID WAVE CONTAINER --- */
+#wave-canvas-container {
+  width: 100%;
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  pointer-events: auto;
+  margin-top: -60px;
+  margin-bottom: 20px;
+  z-index: 5;
+}
+
+#wave-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* --- 5. SCROLL REVEAL & TRANSITIONS --- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+
+/* --- 6. INTERACTIVE CARD HOVER & 3D TILT --- */
+.interactive-card {
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: var(--box-shadow-card);
+  transition: transform 0.35s cubic-bezier(0.2, 0, 0, 1), border-color 0.25s ease, box-shadow 0.35s ease, background-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  background-color: var(--bg-surface-2);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.interactive-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-hover), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.interactive-card:hover::before {
+  opacity: 1;
+}
+
+/* --- 7. UI COMPONENTS --- */
+.ui-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1px;
+  border-radius: 8px;
+  background: var(--badge-border);
+}
+
+.ui-badge-inner {
+  padding: 5px 11px;
+  border-radius: 7px;
+  background: var(--badge-bg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.ui-btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-weight: 500;
+  border-radius: 8px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.ui-btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.ui-btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.ui-btn-secondary:hover {
+  background-color: var(--border-color);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.ui-tag {
+  background: var(--btn-secondary-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ui-tag:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+  background-color: var(--bg-surface-2);
+  transform: translateY(-1px);
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  color: var(--text-primary);
+  background-color: var(--btn-secondary-bg);
+}
+
+.filter-btn.active {
+  background-color: var(--theme-btn-active-bg) !important;
+  color: var(--theme-btn-active-text) !important;
+  border-color: var(--theme-btn-active-border) !important;
+  font-weight: 600;
+}
+
+/* --- 8. RECRUITER FAQ ACCORDION --- */
+.faq-item {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background-color: var(--bg-surface-1);
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--border-hover);
+}
+
+.faq-header {
+  width: 100%;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.faq-icon {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.is-open .faq-icon {
+  transform: rotate(180deg);
+  color: var(--text-primary);
+}
+
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+  padding: 0 20px;
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+.faq-item.is-open .faq-body {
+  max-height: 250px;
+  padding-bottom: 18px;
+}
+
+/* --- 9. CONTACT FORM INPUTS --- */
+.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-surface-2);
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--border-active);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+/* Hero Canvas Container */
+#hero-canvas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#hero-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Modal Popup */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--modal-overlay);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-hover);
+  border-radius: 16px;
+  max-width: 750px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.is-open .modal-content {
+  transform: scale(1);
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-hover);
+  color: var(--text-primary);
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+  font-size: 0.875rem;
+}
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume / CV - Pham Van Vuong Thuan | Stanford Format (Clickable Links)</title>
+    
+    <!-- Google Fonts: Times New Roman / EB Garamond / Inter standard -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           STANFORD UNIVERSITY RESUME STANDARD (CLICKABLE PDF LINKS)
+           Designed for 1-Page A4 with 100% functional clickable links in PDF
+           ========================================================================== */
+        
+        :root {
+            --text-color: #111111;
+            --text-muted: #2b2b2b;
+            --link-color: #0b4f8a;
+            --border-color: #222222;
+            --bg-page: #ffffff;
+            --bg-body: #f1f5f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'EB Garamond', 'Times New Roman', Times, serif;
+            color: var(--text-color);
+            background-color: var(--bg-body);
+            line-height: 1.33;
+            font-size: 10.5pt;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Action Bar (hidden when printing) */
+        .action-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+        }
+
+        .action-bar a, .action-bar button {
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.08);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .action-bar a:hover, .action-bar button:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .btn-print {
+            background: #2563eb !important;
+            border-color: #3b82f6 !important;
+            font-weight: 600 !important;
+        }
+
+        .btn-print:hover {
+            background: #1d4ed8 !important;
+        }
+
+        /* Resume A4 Container */
+        .cv-container {
+            max-width: 820px;
+            margin: 22px auto;
+            background-color: var(--bg-page);
+            padding: 34px 44px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            border-radius: 2px;
+        }
+
+        /* Header / Contact */
+        .cv-header {
+            text-align: center;
+            margin-bottom: 11px;
+        }
+
+        .cv-header h1 {
+            font-size: 22pt;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 3px;
+            color: #000000;
+        }
+
+        .cv-header .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 10pt;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 5px;
+            letter-spacing: 0.2px;
+        }
+
+        .cv-header .contact-row {
+            font-family: 'EB Garamond', serif;
+            font-size: 10pt;
+            color: var(--text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 4px 8px;
+        }
+
+        .cv-header .contact-row a {
+            color: var(--link-color);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .cv-header .contact-row a:hover {
+            color: #073763;
+        }
+
+        .separator {
+            color: #888888;
+        }
+
+        /* Section Formatting */
+        .cv-section {
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            border-bottom: 1.2px solid var(--border-color);
+            padding-bottom: 1px;
+            margin-bottom: 5px;
+            color: #000000;
+        }
+
+        /* Item Header */
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1px;
+        }
+
+        .item-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .item-subtitle {
+            font-size: 10pt;
+            font-style: italic;
+            color: #222222;
+        }
+
+        .item-date, .item-location {
+            font-size: 9.5pt;
+            font-style: normal;
+            color: #333333;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        /* Clickable Link Styling for PDF & Screen */
+        .project-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 8.5pt;
+            font-weight: 600;
+            color: var(--link-color);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            margin-left: 4px;
+        }
+
+        .project-link:hover {
+            color: #073763;
+        }
+
+        /* Bullet Points */
+        ul.bullet-list {
+            margin-top: 2px;
+            margin-bottom: 5px;
+            padding-left: 17px;
+        }
+
+        ul.bullet-list li {
+            font-size: 10pt;
+            margin-bottom: 2px;
+            text-align: justify;
+        }
+
+        ul.bullet-list li strong {
+            color: #000000;
+        }
+
+        /* Skills table */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            row-gap: 2.5px;
+            font-size: 10pt;
+        }
+
+        .skill-category {
+            font-weight: 700;
+            color: #000000;
+        }
+
+        .skill-content {
+            color: var(--text-color);
+        }
+
+        /* Print Optimization (1-Page A4 with Clickable Links) */
+        @media print {
+            body {
+                background: #ffffff;
+                font-size: 10pt;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+
+            .cv-container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 11mm 13mm 11mm 13mm;
+            }
+
+            /* Retain professional clickable link styling in PDF */
+            a {
+                color: #0b4f8a !important;
+                text-decoration: underline !important;
+                text-underline-offset: 2px !important;
+            }
+
+            .section-title {
+                border-bottom: 1.2px solid #000000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ACTION / NAVIGATION BAR (Screen Only) -->
+    <div class="action-bar">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <a href="index.html" title="Back to Interactive Portfolio">
+                <i class="fa-solid fa-arrow-left"></i> Back to Main Portfolio
+            </a>
+            <span style="color: #94a3b8; font-size: 12px;">Stanford Standard 1-Page A4 CV (Clickable PDF Hyperlinks)</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <button onclick="window.print()" class="btn-print">
+                <i class="fa-solid fa-print"></i> Print / Save as PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN RESUME CONTAINER -->
+    <div class="cv-container">
+        
+        <!-- HEADER -->
+        <header class="cv-header">
+            <h1>Pham Van Vuong Thuan</h1>
+            <div class="subtitle">AI Engineer • Computer Vision & Natural Language Processing (NLP)</div>
+            <div class="contact-row">
+                <span>Hanoi, Vietnam</span>
+                <span class="separator">•</span>
+                <a href="mailto:vuogthuan06@gmail.com">vuogthuan06@gmail.com</a>
+                <span class="separator">•</span>
+                <a href="https://github.com/PhThuan-tech" target="_blank">github.com/PhThuan-tech</a>
+                <span class="separator">•</span>
+                <a href="https://linkedin.com/in/thu%E1%BA%ADn-ph%E1%BA%A1m-6b7861423" target="_blank">linkedin.com/in/thuan-pham</a>
+                <span class="separator">•</span>
+                <a href="https://kaggle.com/thunvng" target="_blank">kaggle.com/thunvng</a>
+            </div>
+        </header>
+
+        <!-- 1. EDUCATION -->
+        <section class="cv-section">
+            <h2 class="section-title">Education</h2>
+            <div>
+                <div class="item-header">
+                    <span class="item-title">VNU University of Engineering and Technology (UET - VNU)</span>
+                    <span class="item-location">Hanoi, Vietnam</span>
+                </div>
+                <div class="item-header">
+                    <span class="item-subtitle">Bachelor of Science in Artificial Intelligence & Computer Science (3rd Year)</span>
+                    <span class="item-date">2024 – Present</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><strong>Cumulative GPA:</strong> <strong>3.71 / 4.0</strong> (High Distinction / Xuất sắc) • Member at AI Research Lab (Continual Learning).</li>
+                    <li><strong>Relevant Coursework:</strong> Deep Learning, Machine Learning, Computer Vision, Natural Language Processing, Linear Algebra & Calculus, Probability & Statistics, Data Structures & Algorithms, Object-Oriented Programming (C++).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 2. TECHNICAL SKILLS -->
+        <section class="cv-section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">Languages:</div>
+                <div class="skill-content">Python (Numpy, Scipy, Pandas), C/C++ (STL, OOP), SQL (PostgreSQL, MySQL), Bash/Linux.</div>
+
+                <div class="skill-category">AI Frameworks:</div>
+                <div class="skill-content">PyTorch, Scikit-Learn, Hugging Face Transformers, OpenCV, YOLOv8, LangChain, ChromaDB, ByteTrack.</div>
+
+                <div class="skill-category">Tools & DevOps:</div>
+                <div class="skill-content">Docker, FastAPI, Git/GitHub, Linux OS, ONNX Runtime, TensorRT, Streamlit, MLflow.</div>
+
+                <div class="skill-category">Core Focus:</div>
+                <div class="skill-content">Computer Vision (Detection, Tracking), NLP & LLMs (RAG, Embeddings), Continual Learning (PEFT / RSIAT).</div>
+            </div>
+        </section>
+
+        <!-- 3. FEATURED AI PROJECTS & RESEARCH -->
+        <section class="cv-section">
+            <h2 class="section-title">Featured AI Projects & Research</h2>
+
+            <!-- Project 1: Real-Time Traffic Monitoring -->
+            <div style="margin-bottom: 7px;">
+                <div class="item-header">
+                    <span class="item-title">Real-Time Traffic Monitoring & Multi-Object Tracking System</span>
+                    <span class="item-location">
+                        <a href="https://github.com/PhThuan-tech?tab=repositories" target="_blank" class="project-link">[GitHub Repo: github.com/PhThuan-tech]</a>
+                    </span>
+                </div>
+                <div class="item-header">
+                    <span class="item-subtitle">AI & Backend Engineer | Python, PyTorch, YOLOv8, ByteTrack, FastAPI, Docker</span>
+                    <span class="item-date">2024</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Architected an end-to-end computer vision pipeline processing RTSP surveillance video streams for real-time vehicle detection and trajectory tracking.</li>
+                    <li>Optimized inference using YOLOv8 with ONNX Runtime and TensorRT FP16 quantization, achieving <strong>45+ FPS latency</strong> on NVIDIA GPU T4.</li>
+                    <li>Integrated ByteTrack with Kalman filtering to maintain robust ID association, yielding <strong>91.4% mAP50</strong> and <strong>84.2% MOTA score</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- Project 2: RSIAT Continual Learning -->
+            <div style="margin-bottom: 2px;">
+                <div class="item-header">
+                    <span class="item-title">RSIAT: Continual Learning & Representation-Steered Adapter Tuning</span>
+                    <span class="item-location">
+                        <a href="https://github.com/PhThuan-tech?tab=repositories" target="_blank" class="project-link">[Lab Repo: github.com/PhThuan-tech]</a>
+                    </span>
+                </div>
+                <div class="item-header">
+                    <span class="item-subtitle">Deep Learning Researcher & Implementer | Python, PyTorch, PEFT, Vision Transformers</span>
+                    <span class="item-date">2024 – Present</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Studied and reproduced <strong>Representation-Steered Incremental Adapter Tuning (RSIAT)</strong> to solve catastrophic forgetting in sequential vision tasks.</li>
+                    <li>Integrated representation steering adapters alongside frozen Vision Transformer backbones, tuning only <strong>&lt; 3.5% of total parameters</strong>.</li>
+                    <li>Achieved <strong>86.7% Top-1 average accuracy</strong> across incremental task benchmarks while restricting Backward Transfer forgetting (BWT) to <strong>-1.8%</strong>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 4. VERIFIED CERTIFICATIONS -->
+        <section class="cv-section">
+            <h2 class="section-title">Certifications</h2>
+            <ul class="bullet-list">
+                <li>
+                    <strong>AI Engineer for Developers Associate</strong> – DataCamp Certified (2024).
+                </li>
+                <li>
+                    <strong>Machine Learning Specialization</strong> – DeepLearning.AI & Stanford Online / Stanford CPD (Coursera).
+                </li>
+                <li>
+                    <strong>Supervised Machine Learning: Regression and Classification</strong> – Stanford University & DeepLearning.AI.
+                </li>
+            </ul>
+        </section>
+
+        <!-- 5. HONORS & AWARDS -->
+        <section class="cv-section" style="margin-bottom: 0;">
+            <h2 class="section-title">Honors & Awards</h2>
+            <ul class="bullet-list">
+                <li>
+                    <strong>Academic Excellence Scholarship (Học bổng Khuyến khích học tập)</strong> – VNU-UET (2024 – 2025).
+                </li>
+                <li>
+                    <strong>"5-Good Student" Award (Danh hiệu Sinh viên 5 tốt)</strong> – Awarded at both VNU University Level and Faculty Level (2025 – 2026).
+                </li>
+                <li>
+                    <strong>Top-Tier Academic Standing</strong> – Maintained cumulative GPA of 3.71 / 4.0 across all semesters at VNU-UET.
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+</body>
+</html>

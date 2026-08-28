@@ -1,0 +1,350 @@
+/**
+ * ==========================================================================
+ * PORTFOLIO AI - BILINGUAL DICTIONARY (EN / VI)
+ * Personal Information: Pham Van Vuong Thuan (VNU-UET)
+ * ==========================================================================
+ */
+
+const translations = {
+    en: {
+        // Nav
+        nav_about: "About",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_playground: "AI Playground",
+        nav_education: "Education",
+        nav_research: "Research Lab",
+        nav_faq: "FAQ",
+        btn_cv: "VIEW CV (STANFORD)",
+        
+        // Hero
+        badge_status: "AI SYSTEM PRACTITIONER • VNU-UET AI ENGINEER",
+        hero_role: "AI Engineer • Computer Vision & NLP",
+        hero_desc: "3rd-year Artificial Intelligence student at <strong style='color: var(--text-primary);'>VNU University of Engineering and Technology (UET)</strong>. Focused on <strong style='color: var(--text-primary);'>Computer Vision</strong>, <strong style='color: var(--text-primary);'>Natural Language Processing (NLP / LLMs)</strong>, and <strong style='color: var(--text-primary);'>Continual Learning</strong>. Solid mathematical background (GPA: 3.71/4.0), data engineering skills, and production-driven mindset.",
+        btn_download_cv: "View Resume (Stanford Format)",
+        btn_view_projects: "Explore Projects & Code",
+        hero_socials_title: "Direct Connect",
+        
+        // Metrics
+        metric_projects: "UET - VNU",
+        metric_projects_sub: "3rd-Year Student",
+        metric_acc: "3.71 / 4.0",
+        metric_acc_sub: "Cumulative GPA",
+        metric_kaggle: "Certifications",
+        metric_kaggle_sub: "DataCamp & Stanford",
+        metric_paper: "Continual AI",
+        metric_paper_sub: "RSIAT Lab Study",
+
+        // Skills
+        skills_badge: "01 // SYSTEMATIC TECH STACK",
+        skills_title: "End-to-End AI Tech Stack",
+        skills_desc: "Categorized by the complete AI lifecycle: from exploratory data analysis and model training to deployment and continual learning research.",
+        cat_lang: "Core Languages",
+        cat_lang_sub: "Programming Foundations",
+        cat_ai: "AI & Frameworks",
+        cat_ai_sub: "Deep Learning & NLP / CV",
+        cat_ops: "Deployment & Tools",
+        cat_ops_sub: "Containerization & Versioning",
+        cat_data: "Data & Analytics",
+        cat_data_sub: "EDA & Mathematical Foundations",
+
+        // Projects
+        proj_badge: "02 // CORE PROJECTS",
+        proj_title: "Featured AI & Engineering Projects",
+        proj_desc: "Real-world end-to-end applications demonstrating problem formulation, robust pipeline engineering, and measurable metrics.",
+        filter_all: "All (3)",
+        filter_cv: "Computer Vision",
+        filter_genai: "NLP & LLMs",
+        filter_ml: "Machine Learning",
+        btn_arch_view: "View Architecture",
+        
+        // Project 1
+        p1_tag: "COMPUTER VISION",
+        p1_sub: "Production Ready",
+        p1_title: "Real-Time Traffic Monitoring & Multi-Object Tracking System",
+        p1_desc: "An end-to-end computer vision solution that detects, classifies, and tracks vehicle trajectories in real-time from high-resolution traffic camera streams with low latency.",
+        p1_pipeline_label: "Technical Architecture Pipeline:",
+        p1_pipeline: "RTSP Stream → YOLOv8 (ONNX/TensorRT) → ByteTrack / DeepSORT → FastAPI Async Worker → Redis Dashboard",
+        p1_m1_label: "Accuracy",
+        p1_m1_val: "91.4% mAP50",
+        p1_m2_label: "Inference Latency",
+        p1_m2_val: "45+ FPS (GPU T4)",
+        p1_m3_label: "Multi-Object Tracking",
+        p1_m3_val: "84.2% MOTA Score",
+
+        // Project 2
+        p2_tag: "NLP & GENERATIVE AI",
+        p2_sub: "Enterprise Ready",
+        p2_title: "Enterprise Document Q&A Assistant (RAG Pipeline)",
+        p2_desc: "An enterprise-grade Retrieval-Augmented Generation (RAG) assistant enabling accurate semantic search and grounded answers across corporate documents (PDF, Docx) with zero hallucination.",
+        p2_pipeline_label: "Technical Architecture Pipeline:",
+        p2_pipeline: "Document Parsing → BGE-M3 Embeddings → Hybrid Retrieval (BM25 + ChromaDB) → Cohere Rerank → LLM Synthesis",
+        p2_m1_label: "Context Recall",
+        p2_m1_val: "92.8% (RAGAS)",
+        p2_m2_label: "Faithfulness",
+        p2_m2_val: "94.5% Grounded",
+        p2_m3_label: "Average Query Latency",
+        p2_m3_val: "< 1.2s Response",
+
+        // Project 3
+        p3_tag: "CONTINUAL LEARNING & ML",
+        p3_sub: "Research & Applied ML",
+        p3_title: "RSIAT: Continual Learning & Representation-Steered Adapter Tuning",
+        p3_desc: "Research reproduction and benchmarking of Representation-Steered Incremental Adapter Tuning (RSIAT) for lifelong continual learning without catastrophic forgetting.",
+        p3_pipeline_label: "Technical Architecture Pipeline:",
+        p3_pipeline: "Incremental Task Stream → Feature Extractor (Backbone) → Representation Steering Adapter → Contrastive Memory Buffer → Evaluation Matrix",
+        p3_m1_label: "Average Accuracy",
+        p3_m1_val: "86.7% Top-1",
+        p3_m2_label: "Backward Transfer (BWT)",
+        p3_m2_val: "-1.8% Forgetting",
+        p3_m3_label: "Trainable Params",
+        p3_m3_val: "< 3.5% (PEFT)",
+
+        // Playground
+        play_badge: "03 // LIVE INTERACTIVE DEMO",
+        play_title: "Interactive AI Query Playground",
+        play_desc: "Experience a simulated enterprise RAG query pipeline in real-time. Pick a sample query or type your own to inspect retrieval steps and grounded output generation.",
+        play_label_query: "Select or type a business inquiry:",
+        play_btn_run: "Run Inference Simulation",
+        play_step_retrieve: "Retrieving relevant chunks from Vector DB (ChromaDB)...",
+        play_step_rerank: "Reranking top 3 context documents...",
+        play_step_generate: "Generating answer with citation grounded LLM...",
+        play_sources: "Grounded Sources & Citations:",
+
+        // Value Proposition
+        val_badge: "04 // VALUE PROPOSITION",
+        val_title: "Why Hire Me: Core Strengths",
+        val_desc: "Combining top academic excellence from VNU-UET with hands-on development skills across modern AI frameworks and research methods.",
+        val_1_title: "Strong Mathematical Foundations",
+        val_1_desc: "Top academic standing at VNU-UET (GPA 3.71/4.0) with comprehensive mastery of Linear Algebra, Probability & Statistics, Optimization, and Algorithm Design.",
+        val_2_title: "Computer Vision & NLP Focus",
+        val_2_desc: "Hands-on experience fine-tuning modern Transformer models, YOLO architectures, and deploying end-to-end inference pipelines.",
+        val_3_title: "Continual Learning & Research Mindset",
+        val_3_desc: "Active lab participation studying Continual Learning (RSIAT), parameter-efficient fine-tuning (PEFT), and rapid paper reproduction capability.",
+
+        // Education & Awards
+        edu_badge: "05 // CREDENTIALS & HONORS",
+        edu_title: "Education, Certifications & Awards",
+        edu_desc: "Solid academic standing at VNU-UET accompanied by internationally verified certifications and university honors.",
+        edu_sec1: "01 // Formal Education",
+        edu_uni: "VNU University of Engineering and Technology (UET)",
+        edu_major: "Major: Artificial Intelligence & Computer Science",
+        edu_gpa_label: "Current GPA:",
+        edu_gpa: "3.71 / 4.0 (Distinction / Xuất sắc)",
+        edu_thesis: "3rd-Year Undergraduate (2024 - Present). Active member in AI Research Lab focusing on Continual Learning.",
+        edu_sec2: "02 // Verified Certifications",
+        cert_1_name: "AI Engineer for Developers Associate",
+        cert_1_by: "DataCamp Certified",
+        cert_2_name: "Machine Learning Specialization",
+        cert_2_by: "DeepLearning.AI, Stanford Online / CPD & Coursera",
+        cert_3_name: "Supervised & Unsupervised Learning",
+        cert_3_by: "Stanford University / DeepLearning.AI",
+        edu_sec3: "03 // Awards & Honors",
+        award_1_name: "Academic Excellence Scholarship (2024 - 2025)",
+        award_1_desc: "Awarded by VNU-UET for top-tier academic standing and research potential.",
+        award_2_name: "5-Good Student Award (Sinh viên 5 tốt) 2025 - 2026",
+        award_2_desc: "Achieved prestigious '5-Good Student' title at both VNU University Level and Faculty Level.",
+        award_3_name: "AI Research Lab Recognition",
+        award_3_desc: "Proactive contributions in paper reproduction and empirical continual learning experiments.",
+
+        // Research
+        res_badge: "06 // LAB RESEARCH & REPRODUCTION",
+        res_title: "Continual Learning & Paper Reproduction",
+        res_desc: "In-depth research participation at the AI Laboratory investigating lifelong learning methods without catastrophic forgetting.",
+        res_conf: "AI Research Lab • Continual Learning Study",
+        res_status: "Benchmarked & Implemented",
+        res_paper_title: "RSIAT: Representation-Steered Incremental Adapter Tuning for Continual Learning",
+        res_authors: "Studied & Implemented by <strong>Pham Van Vuong Thuan</strong> (Ref: CVPR / Continual Learning)",
+        res_abstract: "Investigated and reproduced parameter-efficient adapter tuning mechanisms (RSIAT) for incremental vision tasks, maintaining stability-plasticity balance and reducing catastrophic forgetting to under 2%.",
+        res_link_pdf: "View Lab Study Notes",
+        res_link_code: "View GitHub Repositories",
+
+        // Recruiter FAQ Section
+        faq_badge: "07 // RECRUITER FAQ",
+        faq_title: "Frequently Asked Questions",
+        faq_desc: "Quick answers to common recruiter questions regarding availability, internship/fresher readiness, and technical skills.",
+        faq_q1: "What role types and working hours are you open to?",
+        faq_a1: "I am open to AI Engineer Intern, Fresher AI Engineer, or Data Scientist positions with flexible scheduling (Part-time or Full-time around university coursework).",
+        faq_q2: "What work arrangement do you prefer (On-site, Hybrid, Remote)?",
+        faq_a2: "I am available for On-site work in Hanoi (near Cau Giay / VNU-UET campus), as well as Hybrid or Remote arrangements.",
+        faq_q3: "What are your core technical strengths in AI?",
+        faq_a3: "My strongest competencies are in Python, PyTorch, Computer Vision (YOLO/Tracking), NLP & LLM pipelines (RAG, Embeddings, LangChain), and Continual Learning research (PEFT/Adapters) with GPA 3.71/4.0.",
+        faq_q4: "How do you balance research and practical engineering?",
+        faq_a4: "I believe strong theoretical understanding (from VNU-UET and Stanford ML courses) empowers cleaner and more optimized engineering solutions in production environments.",
+
+        // Footer
+        footer_copy: "© 2025 Pham Van Vuong Thuan (PhThuan-tech) • VNU University of Engineering and Technology (UET)",
+        footer_sub: "AI Engineer • Computer Vision & NLP"
+    },
+
+    vi: {
+        // Nav
+        nav_about: "Giới thiệu",
+        nav_skills: "Kỹ năng",
+        nav_projects: "Dự án",
+        nav_playground: "AI Playground",
+        nav_education: "Học vấn & Thành tích",
+        nav_research: "Nghiên cứu Lab",
+        nav_faq: "Hỏi - Đáp",
+        btn_cv: "XEM CV (STANFORD)",
+
+        // Hero
+        badge_status: "AI SYSTEM PRACTITIONER • SINH VIÊN AI UET-VNU",
+        hero_role: "AI Engineer • Computer Vision & NLP",
+        hero_desc: "Sinh viên năm 3 chuyên ngành Trí tuệ Nhân tạo tại <strong style='color: var(--text-primary);'>Trường Đại học Công nghệ - Đại học Quốc gia Hà Nội (UET-VNU)</strong>. Định hướng chuyên sâu về <strong style='color: var(--text-primary);'>Computer Vision</strong>, <strong style='color: var(--text-primary);'>Xử lý ngôn ngữ tự nhiên (NLP / LLMs)</strong> và <strong style='color: var(--text-primary);'>Continual Learning (Học liên tục)</strong>. Nền tảng toán học và tư duy giải thuật xuất sắc (GPA: 3.71/4.0).",
+        btn_download_cv: "Xem CV (Chuẩn Stanford)",
+        btn_view_projects: "Xem Dự Án & Mã Nguồn",
+        hero_socials_title: "Liên kết trực tiếp",
+
+        // Metrics
+        metric_projects: "UET - VNU",
+        metric_projects_sub: "Sinh viên Năm 3",
+        metric_acc: "3.71 / 4.0",
+        metric_acc_sub: "GPA Tích lũy (Xuất sắc)",
+        metric_kaggle: "Chứng chỉ Quốc tế",
+        metric_kaggle_sub: "DataCamp & Stanford",
+        metric_paper: "Continual AI",
+        metric_paper_sub: "Nghiên cứu Lab RSIAT",
+
+        // Skills
+        skills_badge: "01 // SYSTEMATIC TECH STACK",
+        skills_title: "Bộ Kỹ Năng Hệ Thống",
+        skills_desc: "Phân nhóm rõ ràng theo toàn bộ quy trình phát triển mô hình AI từ phân tích dữ liệu, huấn luyện đến đóng gói triển khai và nghiên cứu thực nghiệm.",
+        cat_lang: "Ngôn Ngữ Lập Trình",
+        cat_lang_sub: "Nền tảng Lập trình",
+        cat_ai: "AI & Frameworks",
+        cat_ai_sub: "Deep Learning & NLP / CV",
+        cat_ops: "Triển Khai & Công Cụ",
+        cat_ops_sub: "Đóng gói & Quản lý phiên bản",
+        cat_data: "Dữ Liệu & Nền Tảng",
+        cat_data_sub: "EDA & Toán học / Giải thuật",
+
+        // Projects
+        proj_badge: "02 // CORE PROJECTS",
+        proj_title: "Dự Án Thực Chiến Nổi Bật",
+        proj_desc: "Trực tiếp giải quyết bài toán thực tế, thể hiện rõ luồng Pipeline kỹ thuật và chỉ số đo lường hiệu năng (Benchmark/Metrics).",
+        filter_all: "Tất cả (3)",
+        filter_cv: "Computer Vision",
+        filter_genai: "NLP & LLMs",
+        filter_ml: "Machine Learning",
+        btn_arch_view: "Xem Kiến Trúc",
+
+        // Project 1
+        p1_tag: "COMPUTER VISION",
+        p1_sub: "Production Ready",
+        p1_title: "Hệ thống Giám sát & Đếm Lưu lượng Giao thông Thời gian thực",
+        p1_desc: "Giải pháp thị giác máy tính End-to-End tự động phát hiện, phân loại phương tiện và theo dõi lộ trình di chuyển (Multi-Object Tracking) từ luồng RTSP camera đô thị với độ trễ thấp và độ chính xác cao.",
+        p1_pipeline_label: "Kiến trúc Pipeline Kỹ thuật:",
+        p1_pipeline: "RTSP Stream → YOLOv8 (ONNX/TensorRT) → ByteTrack / DeepSORT → FastAPI Async Worker → Redis Dashboard",
+        p1_m1_label: "Độ chính xác",
+        p1_m1_val: "91.4% mAP50",
+        p1_m2_label: "Tốc độ xử lý",
+        p1_m2_val: "45+ FPS (GPU T4)",
+        p1_m3_label: "Hiệu năng Tracking",
+        p1_m3_val: "84.2% MOTA Score",
+
+        // Project 2
+        p2_tag: "NLP & GENERATIVE AI",
+        p2_sub: "Enterprise Ready",
+        p2_title: "Enterprise Document Q&A Assistant (RAG Pipeline)",
+        p2_desc: "Hệ thống Trợ lý ảo tra cứu và tổng hợp thông tin tự động từ kho tài liệu doanh nghiệp quy mô lớn (PDF, Word, Markdown) sử dụng kiến trúc Hybrid Retrieval (BM25 + BGE-M3 Embeddings) và Reranker giúp loại bỏ ảo giác (hallucination).",
+        p2_pipeline_label: "Kiến trúc Pipeline Kỹ thuật:",
+        p2_pipeline: "Document Parsing → BGE-M3 Embeddings → Hybrid Search (ChromaDB + BM25) → Cohere Rerank → Llama 3 / Gemini",
+        p2_m1_label: "Context Recall",
+        p2_m1_val: "92.8% (RAGAS)",
+        p2_m2_label: "Faithfulness",
+        p2_m2_val: "94.5% Grounded",
+        p2_m3_label: "Độ trễ phản hồi",
+        p2_m3_val: "< 1.2s Phản hồi",
+
+        // Project 3
+        p3_tag: "CONTINUAL LEARNING & ML",
+        p3_sub: "Nghiên Cứu Thực Nghiệm",
+        p3_title: "RSIAT: Continual Learning & Representation-Steered Adapter Tuning",
+        p3_desc: "Nghiên cứu, tái hiện và đánh giá thực nghiệm phương pháp Representation-Steered Incremental Adapter Tuning (RSIAT) giải quyết bài toán quên lãng thảm khốc (catastrophic forgetting) trong học liên tục.",
+        p3_pipeline_label: "Kiến trúc Pipeline Kỹ thuật:",
+        p3_pipeline: "Incremental Task Stream → Feature Extractor (Backbone) → Representation Steering Adapter → Contrastive Memory Buffer → Evaluation Matrix",
+        p3_m1_label: "Độ chính xác trung bình",
+        p3_m1_val: "86.7% Top-1",
+        p3_m2_label: "Khả năng nhớ (BWT)",
+        p3_m2_val: "-1.8% Forgetting",
+        p3_m3_label: "Tham số huấn luyện",
+        p3_m3_val: "< 3.5% (PEFT)",
+
+        // Playground
+        play_badge: "03 // LIVE INTERACTIVE DEMO",
+        play_title: "Trình Mô Phỏng AI Tương Tác Trực Tiếp",
+        play_desc: "Trải nghiệm quy trình truy vấn RAG doanh nghiệp theo thời gian thực. Chọn câu hỏi mẫu hoặc tự nhập để xem quá trình tìm kiếm vector và sinh câu trả lời.",
+        play_label_query: "Chọn hoặc nhập câu hỏi nghiệp vụ:",
+        play_btn_run: "Chạy Mô Phỏng Inference",
+        play_step_retrieve: "Đang truy vấn vector tương đồng từ ChromaDB...",
+        play_step_rerank: "Đang đánh giá và xếp hạng top 3 văn bản phù hợp...",
+        play_step_generate: "Đang tổng hợp câu trả lời có trích dẫn nguồn bằng LLM...",
+        play_sources: "Tài liệu nguồn trích dẫn:",
+
+        // Value Proposition
+        val_badge: "04 // VALUE PROPOSITION",
+        val_title: "Điểm Mạnh & Giá Trị Bản Thân",
+        val_desc: "Kết hợp giữa nền tảng học thuật xuất sắc tại UET-VNU với kỹ năng lập trình thực chiến trên các framework AI hiện đại.",
+        val_1_title: "Nền Tảng Toán & Giải Thuật Vững Chắc",
+        val_1_desc: "Điểm trung bình tích lũy xuất sắc tại UET-VNU (GPA 3.71/4.0), làm chủ các kiến thức Đại số tuyến tính, Xác suất thống kê, Tối ưu hóa và Cấu trúc dữ liệu & Giải thuật.",
+        val_2_title: "Chuyên Sâu Computer Vision & NLP",
+        val_2_desc: "Kinh nghiệm thực hành huấn luyện, tinh chỉnh các mô hình Transformer, kiến trúc YOLO và xây dựng hệ thống pipeline xử lý dữ liệu hoàn chỉnh.",
+        val_3_title: "Tư Duy Nghiên Cứu & Continual Learning",
+        val_3_desc: "Tham gia phòng Lab nghiên cứu về Continual Learning (RSIAT), Parameter-Efficient Fine-Tuning (PEFT) và khả năng đọc hiểu, tái hiện paper nhanh chóng.",
+
+        // Education & Awards
+        edu_badge: "05 // CREDENTIALS & HONORS",
+        edu_title: "Học Vấn, Chứng Chỉ & Thành Tích",
+        edu_desc: "Nền tảng học thuật xuất sắc tại Trường Đại học Công nghệ - ĐHQGHN cùng các chứng chỉ quốc tế và danh hiệu khen thưởng.",
+        edu_sec1: "01 // Học Vấn Chính Quy",
+        edu_uni: "Trường Đại Học Công Nghệ - Đại Học Quốc Gia Hà Nội (UET-VNU)",
+        edu_major: "Ngành: Trí tuệ Nhân tạo / Công nghệ Thông tin",
+        edu_gpa_label: "GPA Tích Lũy:",
+        edu_gpa: "3.71 / 4.0 (Xuất sắc)",
+        edu_thesis: "Sinh viên năm 3 (2024 - Hiện tại). Thành viên Lab nghiên cứu AI chuyên sâu về Continual Learning.",
+        edu_sec2: "02 // Chứng Chỉ Quốc Tế Đã Đạt",
+        cert_1_name: "AI Engineer for Developers Associate",
+        cert_1_by: "DataCamp",
+        cert_2_name: "Machine Learning Specialization",
+        cert_2_by: "DeepLearning.AI, Stanford Online / CPD & Coursera",
+        cert_3_name: "Supervised & Unsupervised Machine Learning",
+        cert_3_by: "Stanford University & DeepLearning.AI",
+        edu_sec3: "03 // Thành Tích & Danh Hiệu",
+        award_1_name: "Học Bổng Khuyến Khích Học Tập (2024 - 2025)",
+        award_1_desc: "Trao tặng bởi Trường ĐH Công nghệ - ĐHQGHN cho sinh viên có thành tích học tập xuất sắc.",
+        award_2_name: "Danh Hiệu Sinh Viên 5 Tốt (2025 - 2026)",
+        award_2_desc: "Đạt danh hiệu Sinh viên 5 tốt cấp Đại học Quốc gia Hà Nội (VNU) và cấp Trường UET.",
+        award_3_name: "Nghiên Cứu Lab Continual Learning",
+        award_3_desc: "Nghiên cứu và tái hiện thực nghiệm phương pháp RSIAT trong học liên tục.",
+
+        // Research
+        res_badge: "06 // LAB RESEARCH & REPRODUCTION",
+        res_title: "Nghiên Cứu Lab & Tái Hiện Paper (RSIAT)",
+        res_desc: "Quá trình tham gia nghiên cứu thực nghiệm tại phòng Lab AI chuyên sâu về Continual Learning (Học liên tục).",
+        res_conf: "AI Research Lab • Nghiên Cứu Continual Learning",
+        res_status: "Thực nghiệm & Tái hiện",
+        res_paper_title: "RSIAT: Representation-Steered Incremental Adapter Tuning for Continual Learning",
+        res_authors: "Nghiên cứu & Tái hiện bởi <strong>Phạm Văn Vương Thuận</strong> (Ref: CVPR / Continual Learning)",
+        res_abstract: "Tìm hiểu và tái hiện cơ chế tinh chỉnh Adapter có hướng dẫn biểu diễn (RSIAT) cho các tác vụ thị giác tăng dần, duy trì cân bằng ổn định - linh hoạt và giảm thiểu hiện tượng quên lãng thảm khốc xuống dưới 2%.",
+        res_link_pdf: "Xem Ghi Chú & Tài Liệu Lab",
+        res_link_code: "Xem Repo Mã Nguồn GitHub",
+
+        // Recruiter FAQ Section
+        faq_badge: "07 // RECRUITER FAQ",
+        faq_title: "Giải Đáp Thắc Mắc Dành Cho Nhà Tuyển Dụng",
+        faq_desc: "Trả lời nhanh các câu hỏi thường gặp về thời gian biểu, định hướng vị trí Intern/Fresher và năng lực chuyên môn.",
+        faq_q1: "Bạn đang tìm kiếm vị trí nào và thời gian làm việc ra sao?",
+        faq_a1: "Tôi đang tìm kiếm các cơ hội thực tập / việc làm cho vị trí AI Engineer Intern, Fresher AI Engineer hoặc Data Scientist với thời gian linh hoạt (Full-time hoặc Part-time kết hợp lịch học tại UET).",
+        faq_q2: "Bạn mong muốn hình thức làm việc ở đâu (Hà Nội, Hybrid, Remote)?",
+        faq_a2: "Tôi sẵn sàng làm việc On-site tại Hà Nội (khu vực Cầu Giấy / gần trường ĐH Công nghệ UET), cũng như hình thức Hybrid hoặc Remote.",
+        faq_q3: "Thế mạnh chuyên môn nổi bật nhất của bạn là gì?",
+        faq_a3: "Thế mạnh lớn nhất của tôi là Python, PyTorch, Thị giác máy tính (YOLO/Tracking), Xử lý ngôn ngữ tự nhiên (NLP/RAG/Embeddings), và tư duy giải thuật với GPA 3.71/4.0 cùng chứng chỉ DataCamp và Stanford ML.",
+        faq_q4: "Bạn cân bằng giữa nghiên cứu học thuật và lập trình ứng dụng như thế nào?",
+        faq_a4: "Tôi tin rằng nền tảng lý thuyết vững chắc từ UET và các khóa học Stanford giúp tôi viết code tối ưu hơn, gỡ lỗi nhanh hơn và dễ dàng tiếp cận công nghệ mới trong môi trường sản phẩm thực tế.",
+
+        // Footer
+        footer_copy: "© 2025 Phạm Văn Vương Thuận (PhThuan-tech) • Trường Đại Học Công Nghệ - ĐHQGHN (UET-VNU)",
+        footer_sub: "AI Engineer • Computer Vision & NLP"
+    }
+};
